@@ -7,9 +7,9 @@ function App(){
   const [showModal, setShowModal] = useState(true)
  const [showEvents, setShowEvents] = useState(true)
  const [events, setEvents] = useState([
-   {title: "Isaac's birthday bast", id:1},
-   {title: "Kisha's birthday bast", id:2},
-   {title: "Nat's birthday bast", id:3},
+   {title: "Jon's birthday bast", id:1},
+   {title: "Sheila's birthday bast", id:2},
+   {title: "Best's birthday bast", id:3},
  ])
 
  const handleClick = (id)=>{
