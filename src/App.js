@@ -19,10 +19,12 @@ function App(){
    })
  })
 
- const handleClose = () => {
-   setShowModal(false);
- }
+
  console.log(id)
+}
+
+const handleClose = () => {
+  setShowModal(false);
 }
  const subtitle = "React is soo cool"
   return(
