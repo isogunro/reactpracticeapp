@@ -2,9 +2,10 @@ import './App.css';
 import {useState} from 'react'
 import Title from './components/Title'
 import Modal from './components/Modal'
+import EventList from './components/EventList';
 
 function App(){
-  const [showModal, setShowModal] = useState(true)
+ const [showModal, setShowModal] = useState(false)
  const [showEvents, setShowEvents] = useState(true)
  const [events, setEvents] = useState([
    {title: "Jon's birthday bast", id:1},
@@ -18,12 +19,16 @@ function App(){
        return id !== event.id
    })
  })
-
- const handleClose = () => {
-   setShowModal(false);
- }
- console.log(id)
 }
+
+const handleClose = () => {
+  setShowModal(false);
+}
+
+const handleOpen = () => {
+  setShowModal(true);
+}
+
  const subtitle = "React is soo cool"
   return(
     <div className="App">
@@ -40,16 +45,7 @@ function App(){
       </div>
       )}
 
-      {showEvents &&  events.map((event, index) => (
-          <div key={event.id}>
-            <h2>{index} - {event.title}</h2>
-              { /* <button onClick={handleClick(event.id)}>delete even</button> */}
-              {/* This is a no no.  It will always fire since it's being invoked automatically*/}
-              {/*Proper Way is to use arrow function*/}
-            <button onClick={() => handleClick(event.id)}>Delete</button>
-          </div>
-        ))
-      }
+      {showEvents &&  <EventList handleClick={handleClick} eventList={events}/>}
 
     {/**
       <Modal>
@@ -58,11 +54,14 @@ function App(){
       </Modal>
      */}  
      
-    {showModal && <Modal handleClose={handleClose}>
+    {showModal && <Modal handleClose={handleClose} isSalesModal={false}>
         <h2>Vacation time</h2>
         <p>yada yada yada!!!</p>
       </Modal>
       }
+      <div>
+        <button onClick={handleOpen}>Show Modal!</button>
+      </div>
     </div>
   )
 }
