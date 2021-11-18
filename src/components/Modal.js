@@ -10,12 +10,6 @@ export default function modal({children, handleClose, isSalesModal}) {
                 textAlign: "center"}}>
 
                 {children}
-
-            <button 
-                onClick={handleClose} 
-                className={isSalesModal ? "sales-btn" : ""}>
-                    close
-                </button>
             </div>
         </div>
     ), document.body)
